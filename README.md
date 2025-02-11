@@ -43,10 +43,6 @@ The third and forth datasets provide imperfect real information. They are divide
 
 The first and third datasets provide information on 118 subjects, using sample overlap to extend the dataset (sample might have moments from other samples), while the other two datasets provide information on 20 subjects, but unique samples (no overlaps).
 
----
-
-[1] Gadaleta, Matteo, and Michele Rossi. "Idnet: Smartphone-based gait recognition with convolutional neural networks." Pattern Recognition 74 (2018): 25-37.
-
 ## Feature Treatment
 
 As the information provided by the datasets already has a good treatment level (only including the steps and being in a small time frame), the treatment done will have the objectives of adapting the information to the goals of the project and of trying to improve the performance of the models.
@@ -91,7 +87,11 @@ Three models were considered for the goals of this project:
 
 - CNN + LSTM - a cojoined network based on the previous two.
 
-The first performance results acquired on the training were based on a 50 Epoch and 32 Batch-Size approach, but were switch to a 20 Epoch and 32 Batch-Size approach, due to similar performance and time constraints.
+The first performance results acquired on the training were based on a 50 Epoch and 32 Batch-Size approach, but were switch to a 20/30 Epoch and 32 Batch-Size approach, due to similar performance and time constraints.
+
+---
+
+[1] Gadaleta, Matteo, and Michele Rossi. "Idnet: Smartphone-based gait recognition with convolutional neural networks." Pattern Recognition 74 (2018): 25-37.
 
 ## Results
 
@@ -130,23 +130,31 @@ The first performance results acquired on the training were based on a 50 Epoch 
 
 | Treatment | Dataset 3 Accuracy | Dataset 3 Loss | Dataset 4 Accuracy | Dataset 4 Loss |
 |-|-|-|-|-|
-| No Treatment | ... | ... | ... | ... |
-| Faster Training | ... | ... | ... | ... |
+| No Treatment | 0.9301 | 0.7101 | 0.9830 | 0.1671 |
+| Faster Training | 0.9281 | 0.7886 | 0.9696 | 0.3472 |
+| Pre-Process | 0.8863 | 1.2390 | ... | ... |
+| Normalization | ... | ... | ... | ... |
 
 #### LSTM Model
 
 | Treatment | Dataset 3 Accuracy | Dataset 3 Loss | Dataset 4 Accuracy | Dataset 4 Loss |
 |-|-|-|-|-|
-| No Treatment | ... | ... | ... | ... |
-| Faster Training | ... | ... | ... | ... |
+| No Treatment | 0.9311 | 0.7141 | 0.9690 | 0.3178 |
+| Faster Training | 0.9238 | 0.6131 | ... | ... |
+| Pre-Process | ... | ... | ... | ... |
+| Normalization | ... | ... | ... | ... |
 
 #### CNN + LSTM Model
 
 | Treatment | Dataset 3 Accuracy | Dataset 3 Loss | Dataset 4 Accuracy | Dataset 4 Loss |
 |-|-|-|-|-|
-| No Treatment | ... | ... | ... | ... |
-| Faster Training | ... | ... | ... | ... |
+| No Treatment | 0.9328 | 1.0914 | ... | ... |
+| Faster Training | 0.9281 | 0.9809 | ... | ... |
+| Pre-Process | ... | ... | ... | ... |
+| Normalization | ... | ... | ... | ... |
 
-## Future Perspective
+### Evaluation
 
-## Conclusion
+Examining all the performance results
+
+## Conclusion and Future Perspective
