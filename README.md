@@ -140,8 +140,8 @@ The first performance results acquired on the training were based on a 50 Epoch 
 | Treatment | Dataset 3 Accuracy | Dataset 3 Loss | Dataset 4 Accuracy | Dataset 4 Loss |
 |-|-|-|-|-|
 | No Treatment | 0.9311 | 0.7141 | 0.9690 | 0.3178 |
-| Faster Training | 0.9238 | 0.6131 | ... | ... |
-| Pre-Process | ... | ... | ... | ... |
+| Faster Training | 0.9238 | 0.6131 | 0.9668 | 0.2504 |
+| Pre-Process | 0.8964 | 0.7711 | ... | ... |
 | Normalization | ... | ... | ... | ... |
 
 #### CNN + LSTM Model
@@ -150,7 +150,7 @@ The first performance results acquired on the training were based on a 50 Epoch 
 |-|-|-|-|-|
 | No Treatment | 0.9328 | 1.0914 | ... | ... |
 | Faster Training | 0.9281 | 0.9809 | ... | ... |
-| Pre-Process | ... | ... | ... | ... |
+| Pre-Process | - | - | ... | ... |
 | Normalization | ... | ... | ... | ... |
 
 ### Evaluation
