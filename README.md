@@ -89,9 +89,11 @@ Three models were considered for the goals of this project:
 
 The first performance results acquired on the training were based on a 50 Epoch and 32 Batch-Size approach, but were switch to a 20/30 Epoch and 32 Batch-Size approach, due to similar performance and time constraints.
 
+The choice of models for the study of this project was inspired by the methods described for user classification in [1].
+
 ---
 
-[1] Gadaleta, Matteo, and Michele Rossi. "Idnet: Smartphone-based gait recognition with convolutional neural networks." Pattern Recognition 74 (2018): 25-37.
+[1] Zou Q, Wang Y, Zhao Y, Wang Q and Li Q, Deep learning-based gait recogntion using smartphones in the wild, IEEE Transactions on Information Forensics and Security, vol. 15, no. 1, pp. 3197-3212, 2020.
 
 ## Results
 
@@ -102,18 +104,18 @@ The first performance results acquired on the training were based on a 50 Epoch 
 | Treatment | Dataset 1 Accuracy | Dataset 1 Loss | Dataset 2 Accuracy | Dataset 2 Loss |
 |-|-|-|-|-|
 | No Treatment | 0.9388 | 0.7136 | 0.9708 | 0.5053 |
-| Faster Training | 0.9318 | 0.8552 | ... | ... |
+| Faster Training | 0.9318 | 0.8552 | 0.9698 | 0.4895 |
 | Normalization of Steps | 0.9005 | 0.7019 | 0.9611 | 0.4568 |
-| Normalization of Separated Steps | ... | ... | 0.9537 | 0.2666 |
+| Normalization of Separated Steps | 0.8896 | 0.5894 | 0.9537 | 0.2666 |
 
 #### LSTM Model
 
 | Treatment | Dataset 1 Accuracy | Dataset 1 Loss | Dataset 2 Accuracy | Dataset 2 Loss |
 |-|-|-|-|-|
 | No Treatment | 0.9249 | 0.9446 | 0.9724 | 0.3117 |
-| Faster Training | 0.9155 | 0.7015 | ... | ... |
-| Normalization of Steps | ... | ... | 0.9483 | 0.3543 |
-| Normalization of Separated Steps | ... | ... | 0.9520 | 0.3568 |
+| Faster Training | 0.9155 | 0.7015 | 0.9670 | 0.3093 |
+| Normalization of Steps | 0.8636 | 0.7713 | 0.9483 | 0.3543 |
+| Normalization of Separated Steps | 0.8695 | 0.7421 | 0.9520 | 0.3568 |
 
 #### CNN + LSTM Model
 
@@ -121,8 +123,8 @@ The first performance results acquired on the training were based on a 50 Epoch 
 |-|-|-|-|-|
 | No Treatment | 0.9374 | 1.0442 | 0.9729 | 0.3273 |
 | Faster Training | 0.9257 | 1.0442 | ... | ... |
-| Normalization of Steps | ... | ... | 0.9568 | 0.9161 |
-| Normalization of Separated Steps | ... | ... | 0.9553 | 0.4182 |
+| Normalization of Steps | 0.8971 | 0.9278 | 0.9568 | 0.9161 |
+| Normalization of Separated Steps | 0.8965 | 0.7894 | 0.9553 | 0.4182 |
 
 ### Fixed Time-Length Datasets
 
@@ -155,9 +157,9 @@ The first performance results acquired on the training were based on a 50 Epoch 
 
 ### Evaluation
 
-Examining all the performance results, it is possible to come up with some conclusions that justify what was obtained. Even tho some accuracy results were lower than other, all the results should be considered, as they have different implecations in different scenarios.
+Examining all the performance results, it is possible to come up with some conclusions that justify what was obtained. Even though some accuracy results were lower than other, all the results should be considered, as they have different implications in different scenarios.
 
-The base results for comparison are the ones where data was not treated at all, as, it was refered above, the data presented was already pretty clean and usable for training. These results were obtained with the 50 epochs of training and a batch size of 32 samples.
+The base results for comparison are the ones where data was not treated at all, as it was refered above, the data presented was already pretty clean and usable for training. These results were obtained with the 50 epochs of training and a batch size of 32 samples.
 
 #### Faster Training
 
@@ -167,7 +169,7 @@ For the first two datasets, the training was reduced to 20 epochs and for the se
 
 The first two datasets' data is better treated than the second ones, requiring the neural networks less epochs to learn its patterns.
 
-As seen in the table of results, this diminituion of epochs barely affects the performance of models and it is much more viable to train the large quantity of desired models.
+As seen in the table of results, this diminution of epochs barely affects the performance of models and it is much more viable to train the large quantity of desired models.
 
 #### The Pre-Processing Problem
 
@@ -191,16 +193,35 @@ Even with the small decreases in accuracy, normalization results should be consi
 
 Besides that, the loss was generally better in the normalized samples, which means that the model was more precise (more sure) when giving correct answers, which could be benefic in future different samples.
 
-#### Single Step vs Continuos Steps
+#### Single Step vs Continuous Steps
 
-Overall the accuracy was better with continuos steps identification, but the difference between them didn't diverge a lot. This means that single step identification is still a reliable source and could be used in case that information is the only one available.
+Overall the accuracy was better with continuous steps identification, but the difference between them didn't diverge a lot. This means that single step identification is still a reliable source and could be used in case that information is the only one available.
 
 #### Fixed Time-Length
 
-Suprisingly, fixed time-length samples exhibited very satisfactory results diverging very little from step samples. This means that identification could be done using this kind of samples almost as reliably as using step stamples, and, therefore, there isn't that much of a need to add the overhead of exctracting steps from the continuos samples.
+Suprisingly, fixed time-length samples exhibited very satisfactory results diverging very little from step samples. This means that identification could be done using this kind of samples almost as reliably as using step samples, and, therefore, there isn't that much of a need to add the overhead of exctracting steps from the continuous samples.
 
 This is probably justified with the fact that these samples were very small and contained mostly walking information, resembling almost step like samples. Obtaining these less precise samples of fixed time montion, though, is simpler than exctracting steps from samples, which benefits the overall performance.
 
 #### Model Performance
 
-## Conclusion and Future Perspective
+Despite initial belief, the CNN models, overall, seemed to have had a better performance when compared with the LSTM models.
+
+The LSTM models tend to be more appropriate for time pattern analysis, but due to the small size of the samples and lack of long continuaty in them, the CNN models seemed to have better understood the patterns, considering the samples as a single unique moment.
+
+## Conclusion
+
+Considering all the performance evaluations done so far and fetching the purposes initially talked about, it is feasable that the obtained models could be used to help implement the desired objectives of the refered purposes.
+
+The models trained without any data treatment are perfectly usable to identify if the carrier of a device is its original user, since the reference system will always be that of the device.
+
+The models trained with normalized data treatment can be used to identify users in any enviroment as their performance little differ from the ones obtained by the models trained without treatment.
+
+## Future Perspective
+
+The results of this project can be considered as sastisfactory, and for future implementations some advancaments can be considered, such as:
+
+- The use of dataset with bigger and noiser samples (implying a more delicate data treatment);
+- The training of the models with more epochs (to obtain even better accuracy);
+- Tuning of hyperparameters (to study if the models better recognize patterns);
+- The study of the performance of other types of models.
