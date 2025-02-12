@@ -122,7 +122,7 @@ The choice of models for the study of this project was inspired by the methods d
 | Treatment | Dataset 1 Accuracy | Dataset 1 Loss | Dataset 2 Accuracy | Dataset 2 Loss |
 |-|-|-|-|-|
 | No Treatment | 0.9374 | 1.0442 | 0.9729 | 0.3273 |
-| Faster Training | 0.9257 | 1.0442 | ... | ... |
+| Faster Training | 0.9257 | 1.0442 | 0.9702 | 0.4799 |
 | Normalization of Steps | 0.8971 | 0.9278 | 0.9568 | 0.9161 |
 | Normalization of Separated Steps | 0.8965 | 0.7894 | 0.9553 | 0.4182 |
 
