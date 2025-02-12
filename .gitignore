@@ -4,9 +4,6 @@ datasets
 # Models
 models
 
-# Images
-imgs
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -181,7 +181,14 @@ As refered before, the provided samples are very small and already very well tre
 
 While the second dataset can bear with some information loss (since there is no overlap), the first one can't (since there is overlap), losing a lot of important information that the model could use to learn.
 
-IMAGENS
+![No treatment - Dataset 3](imgs/3no.png)
+No treatment - Dataset 3
+![Filtered - Dataset 3](imgs/3fil.png)
+Filtered - Dataset 3
+![No treatment - Dataset 4](imgs/4no.png)
+No treatment - Dataset 4
+![Filtered - Dataset 4](imgs/4fil.png)
+Filtered - Dataset 4
 
 Therefore, it was decided to discard the pre-processing step in future treatment, using the raw information as base.
 
