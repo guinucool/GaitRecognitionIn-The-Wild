@@ -194,7 +194,7 @@ Therefore, it was decided to discard the pre-processing step in future treatment
 
 #### Normalization Performance
 
-Lastly, as for the normalization treatment, diverse results were obtained, some models saw their accuracy increased, while some saw decrease, but overall all the models had a better loss value and the accuracy float was very small.
+As for the normalization treatment, diverse results were obtained, some models saw their accuracy increased, while some saw decrease, but overall all the models had a better loss value and the accuracy float was very small.
 
 Even with the small decreases in accuracy, normalization results should be considered. The datasets were captured having all the samples from a certain individual captured with the same device, which can affect the neural network, recognizing patterns in the reference system instead of the steps, which won't be useful in case of need to identify an individual starting from another device.
 
